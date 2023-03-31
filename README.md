@@ -12,7 +12,7 @@ This Django authentication system allows users to register for an account, log i
 - Django-allauth
 
 # Installation
-- Clone the repository: git clone https://github.com/your-username/django-authentication.git
+- Clone the repository: git clone https://github.com/Ayan726/Authentication-system-using-django.git
 - Create a virtual environment: python3 -m venv env
 - Activate the virtual environment: source env/bin/activate
 - Install the requirements: pip install -r requirements.txt
