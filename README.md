@@ -24,3 +24,6 @@ This project can be customized by modifying the templates, forms, and views in t
 
 # Contributions
 Contributions to this project are welcome. Please open a pull request if you would like to contribute.
+
+# Credits
+yt @GFG: https://youtu.be/1UvTNMH7zDo
