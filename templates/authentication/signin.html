@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>SignIn Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-custom bg-image bg-center bg-cover bg-no-repeat font h-screen">
+
+    <nav class="navbar flex justify-between items-center  px-10 py-6 text-white">
+
+        <p class="font-bold text-3xl cursor-pointer"><a href="/">Logo</a></p>
+
+        {% if messages %}
+        {% for message in messages %}
+
+        <h3 class="{% if message.tags %}{{message.tags}}{% endif %} flex gap-2 items-center justify-center border-white border-2 font-semibold cursor-pointer px-4 py-1 rounded-md transition-all duration-300 hover:bg-white hover:text-black"> {{message}} <span class="cross">&times;</span></h3>
+
+        {% endfor %}
+        {% endif %}
+      
+        <div class="buttons flex justify-end items-center gap-5">
+    
+            <button class="btn border-white border-2 px-4 py-1 rounded-md transition-all duration-300 hover:bg-white hover:text-black"><a class="font-semibold" href="/signup">Sign Up</a></button>
+
+        </div>
+    </nav>
+
+
+    <div class="wrapper block mt-20">
+    <div class="form-box-signup w-96 rounded-xl m-auto bg-transparent border-2 border-[rgba(255,255,255,.5)] backdrop-blur-md shadow-[rgba(0,0,0,.5)] shadow-lg pb-6 pt-4 flex flex-col justify-center items-center">
+        <h1 class="font-bold text-2xl cursor-pointer text-center mb-4">Sign In</h1>
+
+        <form class="flex flex-col gap-8 w-72" action="/signin" method="post">
+    
+           {% csrf_token %} 
+            <div class="inp flex border-b-2 border-black pb-2 relative">
+                <span class="icon absolute right-2 text-lg"><ion-icon name="person"></ion-icon></span>
+                <input class="my-input bg-transparent outline-none text-sm px-2 font-semibold" type="text" name="username" id="username">
+                <label class="lab font-semibold transition-all absolute top-0 left-2 cursor-pointer text-gray-700" for="username">Username</label>
+            </div>
+
+            <div class="inp flex border-b-2 border-black pb-2 relative">
+                <span class="icon absolute right-2 text-lg"><ion-icon name="key"></ion-icon></span>
+                <input class="my-input bg-transparent outline-none text-sm px-2 font-semibold" type="password" name="pass1" id="pass1">
+                <label class="lab font-semibold transition-all absolute top-0 left-2 cursor-pointer text-gray-700"  for="pass1">Password</label>
+            </div>
+            
+            
+            <button class="btn w-2/3 m-auto bg-black text-white px-4 py-1 rounded-md transition-all duration-300 hover:shadow-[rgba(0,0,0,.3)] hover:shadow-lg hover:opacity-90 font-semibold" type="submit">Sign In</button>
+    
+        </form>
+    </div>
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'script.js' %}?v=1"></script>
+    <script src="{% static 'homescript.js' %}"></script>
+    
+</body>
+</html>
